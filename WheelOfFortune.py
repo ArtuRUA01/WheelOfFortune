@@ -8,8 +8,7 @@ VOWEL_COST = 250
 LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 VOWELS = [i for i in 'AEIOU']
 
-
-# Write the WOFPlayer class definition (part A) here
+# create WOFPlater (Parent class)
 class WOFPlayer():
 
     def __init__(self, name):
@@ -29,8 +28,7 @@ class WOFPlayer():
     def __str__(self):
         return "{} (${})".format(self.name, self.prizeMoney)
 
-# Write the WOFHumanPlayer class definition (part B) here
-
+# create WOFHumanPlayer (Child class)
 class WOFHumanPlayer(WOFPlayer):
 
     def getMove(self, category, obscuredPhrase, guessed):
@@ -40,8 +38,8 @@ class WOFHumanPlayer(WOFPlayer):
         print('Guessed: {}'.format(guessed))
         answer = input("Guess a letter, phrase, or type 'exit' or 'pass':")
         return answer
-# Write the WOFComputerPlayer class definition (part C) here
 
+# create WOFComputerPlayer (Child class)
 class WOFComputerPlayer(WOFPlayer):
 
     #SORTED_FREQUENCIES = [i for i in 'ZQXJKVBPYGFWMUCLDRHSNIOATE']
@@ -85,12 +83,6 @@ class WOFComputerPlayer(WOFPlayer):
                     for j in possible_letters:
                         if i == j:
                             return i
-
-# PASTE YOUR WOFPlayer CLASS (from part A) HERE
-# PASTE YOUR WOFHumanPlayer CLASS (from part B) HERE
-# PASTE YOUR WOFComputerPlayer CLASS (from part C) HERE
-
-
 
 
 # Repeatedly asks the user for a number between min & max (inclusive)
@@ -227,7 +219,7 @@ while True:
     print('')
     print('{} spins...'.format(player.name))
     time.sleep(2) # pause for dramatic effect!
-    print('{}!'.format(wheelPrize['text']))
+    print('{}$'.format(wheelPrize['text']))
     time.sleep(1) # pause again for more dramatic effect!
 
     if wheelPrize['type'] == 'bankrupt':
